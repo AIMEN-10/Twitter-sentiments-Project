@@ -1,0 +1,29 @@
+from textblob import TextBlob
+
+# Example list of tweets
+tweets = [
+    "I love this product! It's amazing!",
+    "This movie was so boring...",
+    "Can't believe I wasted my money on this!",
+    "Feeling neutral about the weather today.",
+    "Excited to start my new job!",
+]
+
+def analyze_sentiment(text):
+    analysis = TextBlob(text)
+    polarity = analysis.sentiment.polarity
+
+    if polarity > 0:
+        return 'Positive'
+    elif polarity < 0:
+        return 'Negative'
+    else:
+        return 'Neutral'
+
+
+print("Sentiment Analysis Results:")
+for tweet in tweets:
+    sentiment = analyze_sentiment(tweet)
+    print(f"Tweet: '{tweet}' --> Sentiment: {sentiment}")
+
+
